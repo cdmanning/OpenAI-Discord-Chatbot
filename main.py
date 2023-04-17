@@ -40,7 +40,7 @@ openai_create(prompt)
 # ----------# The following code relates to the Discord API and handing discord bot functions
 
 # Discord API Token
-TOKEN =  os.getenv('OpenAIKey')
+TOKEN =  os.getenv('DiscordAPIKey')
 
 # Declares the client variable for the discord client
 client = discord.Client()
