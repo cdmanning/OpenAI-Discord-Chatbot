@@ -34,9 +34,6 @@ def openai_create(prompt):
 openai_create(prompt)
 
 
-
-
-
 # ----------# The following code relates to the Discord API and handing discord bot functions
 
 # Discord API Token
