@@ -1,21 +1,20 @@
 import openai
 import discord
 import re
+import os
 
 
-# ----------# The following code relates to the ChatGPT language model hosted and provided by OpenAI through the API Token.
+# ----------# The following code relates to the OpenAI API configuration and communications
 
-# OpenAI API Token
-key =  os.getenv('OpenAIKey')
+# OpenAI API token
+openai.api_key =  os.getenv('OpenAIKey')
 
-openai.api_key = key
+# Intial chatbot prompt
+prompt = """The following is a conversation with an AI-powered Discord bot, a helpful, creative, clever, and very friendly AI assistant built for this Discord server. 
+            The AI-powered Discord bot always responds in a professional tone and keeps things simple while prompting the user for further input. Keep responses concise and focused.
+            \n\nHuman: Hello, who are you?\nAI: I am your AI-powered chatbot! I'm an AI here to help you out on this server. What can I do for you today? \nHuman: """
 
-
-# Intial OpenAI chatbot prompt
-prompt = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: "
-
-
-# Function that takes in a prompt for the API and resturns the chatbot's responce
+# Retrieves chatbot response from OpenAI API endpoint
 def openai_create(prompt):
         response = openai.Completion.create(
                 model="text-davinci-003",
@@ -29,9 +28,9 @@ def openai_create(prompt):
         )
         return response.choices[0].text
 
-
-# Initializes the OpenAI chatbot with the initial prompt
+# Loads the starting prompt into the chatbot
 openai_create(prompt)
+
 
 
 # ----------# The following code relates to the Discord API and handing discord bot functions
@@ -39,51 +38,43 @@ openai_create(prompt)
 # Discord API Token
 TOKEN =  os.getenv('DiscordAPIKey')
 
-# Declares the client variable for the discord client
+# Initializes the Discord client instance
 client = discord.Client()
 
 
-# Sends a serverside message when the bot is ready
+# Logs a confirmation message to the console when the bot is connected and ready.
 @client.event
 async def on_ready():
         print('Bot {0.user} is logged on and ready to go!'.format(client))
 
 
-# on_message client event checks each message sent in the discord chat
+# Processe messages checking for command prefix
 @client.event
 async def on_message(message):
-        
         
         #Prevents looping of the bot responding to itself
         if message.author == client.user:
                 return
 
-
         # Retreives the username/author for the message sent in chat
         username = str(message.author).split('#')[0]
-
 
         # Retreives the contents of the message sent in chat
         user_message = str(message.content)
 
-
         # Retreives the name of the channel that the message was sent in
         channel = str(message.channel.name)
         
-        
-        #Prints to the clientside console the Name, Message and Channel of the message that was processed
+        #Logs the Name, Message and Channel of the message to the console
         print(f'{username}: {user_message} ({channel})')
     
-    
         #Handels processing of the user message checking for "-gpt "
-        if re.search("-gpt ", user_message):
-                
+        if re.search("-gpt ", user_message): 
                 str_list = user_message.split("-gpt ")
                 UserPrompt = ""
                 for element in str_list:
                         UserPrompt += element
                 await message.channel.send(openai_create(UserPrompt))
 
-
-# Begins running the discord bot client using the API Token
+# Starts discord bot
 client.run(TOKEN)
