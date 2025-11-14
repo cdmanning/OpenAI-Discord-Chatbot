@@ -9,8 +9,8 @@ Follow these steps to deploy and run the bot in your Discord server.
 
 You will need the following API keys:
 
-1.  **OpenAI API Key**
-2.  **Discord Bot Token**
+1.  **[OpenAI API Key](https://openai.com/api/)**
+2.  **[Discord Bot Token](https://discord.com/developers/docs/reference)**
 
 ### 🛠️ Installation & Usage
 
