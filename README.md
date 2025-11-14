@@ -1,7 +1,7 @@
 # 🤖 OpenAI-Discord-Chatbot
 A simple Discord bot that utilizes the OpenAI API to provide chatbot functionality in a Discord server.
 
-### ⚙️ Prerequisites
+## ⚙️ Prerequisites
 
 You will need the following API keys:
 
@@ -9,7 +9,8 @@ You will need the following API keys:
   
   * **[Discord Bot Token](https://discord.com/developers/docs/reference)**
 
-### 🛠️ Installation & Usage
+
+## 🛠️ Installation & Usage
 
 1.  **Clone the Repository:**
     ```bash
