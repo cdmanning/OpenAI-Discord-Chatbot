@@ -5,8 +5,9 @@ A simple Discord bot that utilizes the OpenAI API to provide chatbot functionali
 
 You will need the following API keys:
 
-  **[OpenAI API Key](https://openai.com/api/)**
-  **[Discord Bot Token](https://discord.com/developers/docs/reference)**
+  * **[OpenAI API Key](https://openai.com/api/)**
+  
+  * **[Discord Bot Token](https://discord.com/developers/docs/reference)**
 
 ### 🛠️ Installation & Usage
 
