@@ -23,6 +23,7 @@ You will need the following API keys:
     ```
 
 3. **Configuration**
+   
     For secure token managment this bot uses environment variables. Create a `.env` file and include the following:
 
     ```env
@@ -30,12 +31,12 @@ You will need the following API keys:
     DiscordAPIKey="YOUR_DISCORD_BOT_TOKEN_HERE"
     ```
 
-4.  **Running the Bot:**
+5.  **Running the Bot:**
     ```bash
     python main.py
     ```
 
-5. **Use the Chatbot**
+6. **Use the Chatbot**
     Call the bot using the trigger `-gpt` for example:
     ```
      -gpt How many seconds are in a day?
