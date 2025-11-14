@@ -1,5 +1,5 @@
 # 🤖 OpenAI-Discord-Chatbot
-simple Discord bot that utilizes the OpenAI API to provide chatbot functionality in a Discord server.
+A simple Discord bot that utilizes the OpenAI API to provide chatbot functionality in a Discord server.
 
 ## 🚀 Getting Started
 
